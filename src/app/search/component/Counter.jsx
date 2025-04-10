@@ -1,23 +1,21 @@
 import { useEffect } from "react";
 
 const Counter = (props) => {
-  const plusValue = () => {
-    props.setValue((prev) => prev + 1);
-  };
+  /** @TODO
+   * 1. 현재 수량 표시
+   * 2. 수량 추가
+   * 3. 수량 삭제
+   */
+  const plusValue = () => props.setValue((prev) => prev + 1);
   const minusValue = () => {
+    if (props.value === 1) return alert("값은 1보다 작을 수 없습니다.");
     props.setValue((prev) => prev - 1);
   };
 
   useEffect(() => {
+    // 최초 값을 1로 설정해줌
     props.setValue(1);
   }, []);
-
-  useEffect(() => {
-    if (props.value < 1) {
-      alert("값은 1 이상이어야 합니다.");
-      props.setValue(1);
-    }
-  }, [props.value]);
 
   return (
     <div style={{ display: "flex", gap: "5px" }}>

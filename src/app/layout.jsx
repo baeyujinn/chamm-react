@@ -1,11 +1,11 @@
 "use client";
 
-import UserContextProvider from "../Context/UserContextProvider";
+import UserContextProvider from "@/Context/UserContextProvider";
 import Link from "next/link";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body>
         <UserContextProvider>
           {/** 4. routing */}

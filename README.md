@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 쇼핑몰 서비스
 
-## Getting Started
+## 사전설정
 
-First, run the development server:
+- next config 경로 설정 필요
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 실습 내용
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### jsx, props, useState, useEffect, routing, ContextAPI
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. jsx 실습
+   - HOME 만들기 (root page)
+1. props 실습
+   - Header 만들기
+1. routing 실습 (Link)
+   - layout에 네비게이션 추가 (/mypage 없어도 일단 링크는 만들어놓기)
+1. routing 실습 (Dynamic Routing)
+   - mypage 껍데기 만들기 (header 까지만)
+1. useState 실습
+   - 메인 페이지에 counter useState 선언
+   - Counter 컴포넌트 생성
+   - Counter 컴포넌트에 state를 props로 넘기기
+   - Counter +,- 함수구현
+1. useEffect 실습
+   - Counter 컴포넌트에서 useEffect 이용해서 value 1로 초기화
+   - Counter 컴포넌트에서 useEffect 이용해서 value가 1보다 작아지지 않는 로직
+1. context api 실습
+   - UserContextProvider.jsx 생성
+   - root layout에 context provider 추가
+   - root page에 user context 선언
+1. 쇼핑 화면 구현
+   - user context 이용해서 캐모마일 이미지, 상품명, 카운터, 총 가격, 구매 버튼 기능 구현
+1. mypage 화면 구현
+   - user context 적용

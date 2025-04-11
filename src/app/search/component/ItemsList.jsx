@@ -24,8 +24,8 @@ const ItemsList = () => {
       {
         method: "GET",
         headers: {
-          "X-Naver-Client-Id": "cYvvU73F5GIZZLBTEBVh",
-          "X-Naver-Client-Secret": "ra9sJe6Xco",
+          "X-Naver-Client-Id": process.env.NEXT_PUBLIC_API_CLIENT_ID,
+          "X-Naver-Client-Secret": process.env.NEXT_PUBLIC_API_CLIENT_SECRET,
         },
       }
     ).then(async (res) => {
@@ -34,7 +34,9 @@ const ItemsList = () => {
       setOrderContextValue((prev) => {
         return {
           ...prev,
-          price: result?.items[0]?.lprice ?? result?.items[0]?.hprice,
+          price: result.items.length
+            ? result.items[0]?.lprice ?? result.items[0]?.hprice
+            : 0,
         };
       });
       setSearchedItem(result);

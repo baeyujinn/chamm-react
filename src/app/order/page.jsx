@@ -56,9 +56,8 @@ export default function Order() {
       }),
     }).then(async (res) => {
       const result = await res.json();
-      console.log(result);
 
-      // 마이페이지 청구 금액 업데이트
+      /** 마이페이지 청구 금액 업데이트 */
       setUserContextValue((prev) => {
         return {
           ...prev,
@@ -95,12 +94,11 @@ export default function Order() {
         </>
       )}
 
-      <div>총 청구 금액: {userContextValue.billing}</div>
-
       {orderStatus?.timeStamp && (
         <>
           {`${orderStatus?.timeStamp} 주문완료`}
           <button onClick={onCancelOrder}>주문취소</button>
+          <div>총 청구 금액: {userContextValue.billing}</div>
         </>
       )}
       <div>

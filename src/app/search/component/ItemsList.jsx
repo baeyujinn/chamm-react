@@ -19,16 +19,13 @@ const ItemsList = () => {
 
   const getSearchResult = async () => {
     /** 네이버 검색 api를 통해 상품 검색 */
-    await fetch(
-      `/naver/v1/search/shop.json?query=${orderContextValue.query}&display=1&start=${page}&sort=sim`,
-      {
-        method: "GET",
-        headers: {
-          "X-Naver-Client-Id": process.env.NEXT_PUBLIC_API_CLIENT_ID,
-          "X-Naver-Client-Secret": process.env.NEXT_PUBLIC_API_CLIENT_SECRET,
-        },
-      }
-    ).then(async (res) => {
+    await fetch(`/api/order?query=${orderContextValue.query}`, {
+      method: "GET",
+      headers: {
+        "X-Naver-Client-Id": process.env.NEXT_PUBLIC_API_CLIENT_ID,
+        "X-Naver-Client-Secret": process.env.NEXT_PUBLIC_API_CLIENT_SECRET,
+      },
+    }).then(async (res) => {
       /** 검색 결과를 order context와 state에 저장 */
       const result = await res.json();
       setOrderContextValue((prev) => {
@@ -60,28 +57,28 @@ const ItemsList = () => {
   }, [counterValue]);
 
   /** 페이지 이동 컴포넌트 */
-  const Pagination = () => {
-    return (
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <button
-          onClick={() => {
-            if (page === 1) return;
-            setPage((prev) => prev - 1);
-          }}
-        >
-          이전 페이지
-        </button>
-        {page}페이지
-        <button
-          onClick={() => {
-            setPage((prev) => prev + 1);
-          }}
-        >
-          다음 페이지
-        </button>
-      </div>
-    );
-  };
+  // const Pagination = () => {
+  //   return (
+  //     <div style={{ display: "flex", flexDirection: "row" }}>
+  //       <button
+  //         onClick={() => {
+  //           if (page === 1) return;
+  //           setPage((prev) => prev - 1);
+  //         }}
+  //       >
+  //         이전 페이지
+  //       </button>
+  //       {page}페이지
+  //       <button
+  //         onClick={() => {
+  //           setPage((prev) => prev + 1);
+  //         }}
+  //       >
+  //         다음 페이지
+  //       </button>
+  //     </div>
+  //   );
+  // };
 
   return (
     <div>
@@ -125,7 +122,7 @@ const ItemsList = () => {
                 </div>
 
                 {/** 페이지네이션 */}
-                <Pagination />
+                {/* <Pagination /> */}
               </div>
             );
           })
